@@ -4,6 +4,15 @@ The ML tuner is an optional ONNX-based NCCL tuning path for the SPCX tuner plugi
 
 The current model is `nccl_ml_tuner_v9.2.onnx`.
 
+## Requirements
+
+- SPCX NCCL plugin built with ML tuner support (`--enable-onnx`).
+- ONNX Runtime shared library compatible with the bundled ONNX Runtime C API headers.
+  - Set `NCCL_SPCX_ML_TUNER_ORT_PATH` if the library is not discoverable as `libonnxruntime.so.1` or `libonnxruntime.so`.
+- The `nccl_ml_tuner_v9.2.onnx` model file from this repository.
+- NCCL configured to load the SPCX tuner plugin in the target job environment.
+- For standalone debugging, the `ml_tuner_test` binary from the SPCX plugin package.
+
 ## Runtime Environment Variables
 
 `NCCL_SPCX_ML_TUNER_MODEL`
